@@ -6,6 +6,7 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/panel.css' %}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 {% endblock %}
 
 {% block content %}
@@ -180,24 +181,23 @@
                 <tbody>
                     {% for user in registered_users %}
                     <tr>
-                        <td>{{ user.name|default:"No proporcionado" }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.phone|default:"No proporcionado" }}</td>
-                        <td>{{ user.location|default:"No proporcionada" }}</td>
-                        <td>{{ user.age|default:"No proporcionada" }}</td>
-                        <td>{{ user.date_joined|date:"d/m/Y H:i" }}</td>
+                        <td data-label="Nombre">{{ user.name|default:"No proporcionado" }}</td>
+                        <td data-label="Usuario">{{ user.username }}</td>
+                        <td data-label="Email">{{ user.email }}</td>
+                        <td data-label="Teléfono">{{ user.phone|default:"No proporcionado" }}</td>
+                        <td data-label="Ciudad">{{ user.location|default:"No proporcionada" }}</td>
+                        <td data-label="Edad">{{ user.age|default:"No proporcionada" }}</td>
+                        <td data-label="Fecha de registro">{{ user.date_joined|date:"d/m/Y H:i" }}</td>
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7" class="text-center">No hay usuarios registrados aún.</td>
+                        <td colspan="7" class="empty-message">No hay usuarios registrados aún.</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-
 </div>
 
 {% endblock %}

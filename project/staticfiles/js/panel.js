@@ -3,7 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     flatpickr("#date, #startDate, #endDate", {
         dateFormat: "Y-m-d",
         minDate: "today",
-        locale: "es"
+        locale: {
+            firstDayOfWeek: 1,
+            weekdays: {
+                shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+            },
+            months: {
+                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                longhand: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+            }
+        }
     });
 
     flatpickr("#startTime, #recurringStartTime", {

@@ -14,7 +14,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    padding-top: 0.2rem;
+    padding-top: 0rem;
 }
 
 h1, h2, h3 {
@@ -401,7 +401,7 @@ input[type="text"], input[type="url"] {
 
 .users-table th,
 .users-table td {
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
@@ -587,4 +587,304 @@ input[type="text"], input[type="url"] {
 .filter-select:disabled {
     background-color: #f5f5f5;
     cursor: not-allowed;
+}
+
+/* Additional Mobile Optimizations for panel.css */
+
+/* General responsive containers */
+.admin-panel {
+    padding: 1rem;
+    margin-top: 60px; /* Match navbar height */
+}
+
+@media (max-width: 768px) {
+    .admin-panel {
+        padding: 0.5rem;
+    }
+    
+    /* Stats cards mobile optimization */
+    .stats-summary {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    /* Availability manager mobile optimization */
+    .availability-manager {
+        flex-direction: column;
+    }
+    
+    .time-selector, 
+    .recurring-availability {
+        width: 100%;
+    }
+    
+    /* Form controls mobile optimization */
+    .form-group input[type="text"],
+    .form-group input[type="url"],
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+    
+    /* Users table mobile optimization */
+    .registered-users-list {
+        margin: 0 -0.5rem;
+    }
+    
+    .users-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .users-table td, 
+    .users-table th {
+        padding: 0.65rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Convert table to cards for mobile */
+    @media (max-width: 640px) {
+        .users-table thead {
+            display: none;
+        }
+        
+        .users-table tr {
+            display: block;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .users-table td {
+            display: block;
+            text-align: right;
+            padding: 0.4rem;
+            border: none;
+        }
+        
+        .users-table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+    }
+}
+
+/* Appointment cards mobile optimization */
+@media (max-width: 768px) {
+    #appointmentsList li {
+        padding: 1rem;
+    }
+    
+    .google-meet-form {
+        flex-direction: column;
+    }
+    
+    .google-meet-form input[type="url"] {
+        margin-bottom: 0.5rem;
+    }
+    
+    .appointment-header {
+        flex-wrap: wrap;
+    }
+}
+
+/* Filter improvements */
+.availability-filters {
+    gap: 0.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .availability-filters {
+        flex-direction: column;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+}
+
+/* Improved buttons for touch devices */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary,
+    .record-payment,
+    .google-meet-form button {
+        padding: 12px;
+        min-height: 44px; /* Minimum touch target size */
+        font-size: 16px;
+    }
+    
+    .checkbox-group label {
+        padding: 8px 0;
+        min-height: 44px;
+    }
+}
+
+/* Navigation consistency with base site */
+@media (max-width: 960px) {
+    .navbar-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .navbar-menu.active {
+        transform: translateY(0);
+    }
+}
+
+/* Users table styling */
+.registered-users-list {
+    margin: 1rem 0;
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Ensures table doesn't get too cramped */
+}
+
+.users-table th,
+.users-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.users-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.users-table tr:last-child td {
+    border-bottom: none;
+}
+
+.users-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.empty-message {
+    text-align: center;
+    color: #666;
+    padding: 2rem !important;
+}
+
+/* Mobile responsive table */
+@media screen and (max-width: 768px) {
+    .registered-users-list {
+        margin: 0.5rem 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .users-table {
+        min-width: unset;
+    }
+
+    .users-table thead {
+        display: none;
+    }
+
+    .users-table, 
+    .users-table tbody, 
+    .users-table tr, 
+    .users-table td {
+        display: block;
+        width: 95%;
+    }
+
+    .users-table tr {
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .users-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem 0.8rem;
+        border-bottom: 1px solid #eee;
+        text-align: right;
+    }
+
+    .users-table td:last-child {
+        border-bottom: none;
+    }
+
+    .users-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-right: 0.8rem;
+    }
+
+    .users-table td:not(:last-child) {
+        border-bottom: 1px solid #eee;
+    }
+
+    .empty-message {
+        text-align: center;
+        padding: 1rem !important;
+    }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 480px) {
+    .users-table td {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .users-table td::before {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) {
+    .users-table tr {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .users-table tr:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (max-width: 428px) {
+    .container[role="main"] {
+        margin-top: 20px;
+    }
 }

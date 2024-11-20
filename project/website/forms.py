@@ -9,8 +9,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
-
 class CustomUserCreationForm(UserCreationForm):
     name = forms.CharField(required=True, label="Nombre completo")
     email = forms.EmailField(required=True, label="Correo electrónico")

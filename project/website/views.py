@@ -260,6 +260,7 @@ def book_appointment(request):
             availability.is_booked = True
             availability.save()
 
+            # Send confirmation emails
             user_email_sent = send_confirmation_email_to_user(appointment)
             admin_email_sent = send_confirmation_email_to_admin(appointment)
 
@@ -358,7 +359,9 @@ def send_confirmation_email_to_user(appointment):
 
     Para confirmar tu cita, puedes realizar el pago mediante cualquiera de estas opciones:
 
-    Precio por sesión de 55min: $500 MXN
+    Precio General: $400 MXN
+
+    Precio Estudiantes: $200 MXN (presentando una foto de tu credencial de estudiante vigente)
 
     📱 Transferencia bancaria
 
@@ -399,40 +402,38 @@ def send_confirmation_email_to_user(appointment):
     return False
 
 def send_confirmation_email_to_admin(appointment):
-    admin_email = CustomUser.objects.filter(is_staff=True).first().email
     subject = 'Nueva Cita Agendada'
     with translation.override('es'):
         day_name = _(appointment.availability.date.strftime('%A'))
 
     message = f"""
-
-    Se ha agendado una nueva cita SuperSusi:
+    Se ha agendado una nueva cita:
 
     Usuario: {appointment.user.username}
     Nombre: {appointment.user.name}
+    Email: {appointment.user.email}
+    Teléfono: {appointment.user.phone or 'No proporcionado'}
+    Ciudad: {appointment.user.location or 'No proporcionada'}
     Fecha: {day_name}, {appointment.availability.date.strftime('%d/%m/%Y')}
     Hora: {appointment.availability.start_time.strftime('%H:%M')}
 
     Por favor, actualiza el enlace de Google Meet para esta cita.
-
-    Saludos cordiales,
-    KRAZIK
-
     """
+    
     try:
         send_mail(
             subject,
             message,
             settings.DEFAULT_FROM_EMAIL,
-            [admin_email],
+            [settings.ADMIN_EMAIL],
             fail_silently=False,
         )
-        logger.info(f"Confirmation email sent to admin {admin_email}")
+        logger.info(f"Confirmation email sent to admin {settings.ADMIN_EMAIL}")
         return True
     except SMTPException as e:
-        logger.error(f"SMTP error sending email to admin {admin_email}: {str(e)}")
+        logger.error(f"SMTP error sending email to admin {settings.ADMIN_EMAIL}: {str(e)}")
     except Exception as e:
-        logger.error(f"Unexpected error sending email to admin {admin_email}: {str(e)}")
+        logger.error(f"Unexpected error sending email to admin {settings.ADMIN_EMAIL}: {str(e)}")
     return False
 
 

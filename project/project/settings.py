@@ -149,7 +149,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'psic.susidm@gmail.com'  # Your Gmail address
-EMAIL_HOST_PASSWORD = 'tgtp bphs ukhr lkkh'
+EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'psic.susidm@gmail.com'
 
 ADMIN_EMAIL = 'psic.susidm@gmail.com'  # Replace with the actual admin email address

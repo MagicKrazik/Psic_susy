@@ -31,6 +31,7 @@ h1, h2 {
 h1 {
     text-align: center;
     margin-bottom: 30px;
+    font-size: 2.5rem;
 }
 
 .appointment-form, .confirmation, .user-appointments {

@@ -11,10 +11,9 @@
 {% block content %}
 <div class="home-container">
     <section id="inicio" class="section">
-        <h1>Bienvenido a la consulta de la Psic. Susana Dávila</h1>
-        <p>¿Te sientes abrumado? La terapia puede ayudarte a encontrar claridad y bienestar en tu vida.</p>
-        <p>¿Te sientes atrapado en patrones repetitivos? Con terapia podrás identificar y modificar conductas que te limitan.</p>
-        <p>¡No sigas postergando tu bienestar! Agenda una primera sesión y comienza a sentirte mejor hoy mismo.</p>
+        <h1 class="inicio_3">Bienvenido a la consulta de la Psic. Susana Dávila</h1>
+        <p class="inicio_1">Este es un espacio seguro donde puedes recibir la orientación y el apoyo que necesitas.</p>
+        <p class="inicio_2">No estás solo</p>
         <div class="cta-buttons">
             <a href="{% url 'appointment' %}" class="cta-button">Agendar consulta</a>
             <a href="#servicios" class="cta-button secondary">Conocer servicios</a>
@@ -35,33 +34,34 @@
         <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-user"></i>
-                <h3>Terapia individual</h3>
+                <h3>Sesión individual</h3>
                 <p>Sesiones personalizadas para abordar tus necesidades específicas y trabajar en tu crecimiento personal.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-heart"></i>
-                <h3>Terapia de pareja</h3>
+                <h3>Sesión de pareja</h3>
                 <p>Apoyo para fortalecer la comunicación y resolver conflictos en tu relación.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-users"></i>
-                <h3>Terapia familiar</h3>
+                <h3>Sesión familiar</h3>
                 <p>Se trabaja con toda la familia para mejorar la dinámica y resolver problemas en conjunto.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-child"></i>
-                <h3>Terapia Infantil</h3>
-                <p>Atención especializada para niños, ayudándoles a expresar sus emociones y desarrollar habilidades sociales.</p>
-            </div>
-            <div class="service-card">
                 <i class="fas fa-graduation-cap"></i>
-                <h3>Terapia para Adolescentes</h3>
+                <h3>Sesión para Adolescentes</h3>
                 <p>Apoyo para jóvenes que enfrentan los desafíos únicos de la adolescencia.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-brain"></i>
                 <h3>Manejo del estrés</h3>
-                <p>Aprenderás técnicas efectivas para manejar el estrés y la ansiedad en su vida diaria.</p>
+                <p>Aprenderás técnicas efectivas para manejar el estrés y la ansiedad en tu vida diaria.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Orientación vocacional</h3>
+                <p>¡Encuentra tu camino! Descubre como explotar tus talentos y fortalezas.</p>
             </div>
         </div>
     </section>
@@ -74,7 +74,7 @@
                     <p><strong>"Las sesiones con la Psic. Susana han sido transformadoras. Me siento más seguro y capaz de enfrentar mis desafíos."</strong></p>
                 </div>
                 <div class="testimonial-author">
-                    
+
                     <p class="testimonial-name">Carlos R.</p>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     <p><strong>"Gracias a la terapia, he mejorado significativamente mi relación de pareja. Estoy muy agradecida."</strong></p>
                 </div>
                 <div class="testimonial-author">
-                    
+
                     <p class="testimonial-name">María L.</p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <p><strong>"El enfoque empático de la Psic. Susana me ha ayudado a superar momentos difíciles. Altamente recomendada."</strong></p>
                 </div>
                 <div class="testimonial-author">
-                    
+
                     <p class="testimonial-name">Juan P.</p>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <p><strong>"He notado un cambio significativo en mi bienestar emocional desde que comencé la terapia. Susana es una profesional excepcional."</strong></p>
                 </div>
                 <div class="testimonial-author">
-                    
+
                     <p class="testimonial-name">Ana M.</p>
                 </div>
             </div>
@@ -115,8 +115,10 @@
     <section id="agendar-cita" class="section">
         <h2>Agendar cita</h2>
         <p>Estás a un paso de comenzar tu viaje hacia el bienestar emocional. <strong class="CTA">Agenda tu cita hoy y da el primer paso hacia una vida más plena.</strong></p>
-        <p><strong>Precio por sesión de 55min: $500 MXN</strong></p>
-        <p>Tu salud mental es importante. Si estás considerando terapia pero el costo es una barrera, no te preocupes. <strong>Contacta conmigo para explorar opciones de pago que se ajusten a tus necesidades.</strong></p>
+        <p><strong>*Primera sesión gratis</strong></p>
+        <p><strong>Precio General: $400 MXN</strong></p>
+        <p><strong>Precio Estudiantes: $200 MXN</strong></p>
+        <p>Tu salud mental es importante. Si estás considerando terapia pero el costo es una barrera, no te preocupes. <strong>No dudes en contactarme para explorar opciones de pago que se ajusten a tus necesidades.</strong></p>
         <div class="steps-container">
             <h3>Para comenzar tu terapia, sigue estos sencillos pasos:</h3>
             <ol class="steps-list">

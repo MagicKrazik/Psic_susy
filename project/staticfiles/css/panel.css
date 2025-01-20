@@ -14,7 +14,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    padding-top: 0.2rem;
+    padding-top: 0rem;
 }
 
 h1, h2, h3 {
@@ -880,5 +880,11 @@ input[type="text"], input[type="url"] {
 
     .users-table tr:active {
         transform: scale(0.98);
+    }
+}
+
+@media (max-width: 428px) {
+    .container[role="main"] {
+        margin-top: 20px;
     }
 }
